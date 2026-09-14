@@ -1371,9 +1371,27 @@ button, input, select { font: inherit; }
   object-fit: cover;
 }
 
-.item-image .popular,
-.item-image .item-more {
+.item-image .popular {
   display: none;
+}
+
+.item-image .item-more {
+  display: grid;
+  place-items: center;
+  top: 50%;
+  right: -1px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #eee7d9;
+  color: rgba(27, 19, 16, 0.58);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.item-image .item-more:hover {
+  background: #e3d8c5;
+  color: var(--ink);
 }
 
 .item-info {
