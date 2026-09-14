@@ -1344,3 +1344,111 @@ button, input, select { font: inherit; }
   .customer-hero h1 { font-size: 34px; }
   .customer-deal strong { font-size: 22px; }
 }
+
+/* Compact menu rows keep the dish details scannable without oversized imagery. */
+.item-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.item-card {
+  min-height: 94px;
+  display: flex;
+  align-items: stretch;
+  border-radius: 18px;
+}
+
+.item-image {
+  width: 94px;
+  height: auto;
+  min-height: 94px;
+  flex: 0 0 94px;
+}
+
+.item-image img {
+  padding: 14px 0 14px 14px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.item-image .popular,
+.item-image .item-more {
+  display: none;
+}
+
+.item-info {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 14px 15px 12px;
+  gap: 14px;
+  align-items: center;
+}
+
+.item-info > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.item-info h3 {
+  margin: 3px 0 2px;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-info p {
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.item-actions strong {
+  font: 700 17px 'Fraunces', serif;
+  color: var(--ink);
+  margin-right: 5px;
+}
+
+.item-actions button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: #eee7d9;
+  color: rgba(27, 19, 16, 0.58);
+  padding: 0;
+  cursor: pointer;
+}
+
+.item-actions button:hover {
+  background: #e3d8c5;
+  color: var(--ink);
+}
+
+@media (max-width: 620px) {
+  .item-grid { gap: 10px; }
+  .item-card { min-height: 88px; }
+  .item-image {
+    width: 88px;
+    min-height: 88px;
+    flex-basis: 88px;
+  }
+  .item-image img { padding: 12px 0 12px 12px; }
+  .item-info { padding: 12px 12px 12px 10px; gap: 8px; }
+  .item-info h3 { font-size: 16px; }
+  .item-info p { font-size: 10px; }
+  .item-actions { gap: 5px; }
+  .item-actions strong { font-size: 15px; margin-right: 2px; }
+  .item-actions button { width: 30px; height: 30px; }
+}
