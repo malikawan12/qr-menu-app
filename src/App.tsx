@@ -21,7 +21,10 @@ const defaultCategories: Category[] = [{ id: 'antipasti', name: 'Antipasti' }, {
 const translations: Record<string, Record<string, string>> = { English: { order: 'Add to order', deal: "Today's special", open: 'Open until' }, Español: { order: 'Añadir al pedido', deal: 'Especial de hoy', open: 'Abierto hasta' }, Deutsch: { order: 'Bestellen', deal: 'Tagesangebot', open: 'Geöffnet bis' }, Français: { order: 'Ajouter', deal: 'Suggestion du jour', open: "Ouvert jusqu'à" } }
 const read = <T,>(key: string, fallback: T): T => { try { return JSON.parse(localStorage.getItem(key) || '') as T } catch { return fallback } }
 const publicSlug = new URLSearchParams(window.location.search).get('restaurant')
-const publicMenuUrl = (slug: string) => `${window.location.origin}/?restaurant=${encodeURIComponent(slug)}`
+const publicMenuUrl = (slug: string) => {
+  const baseUrl = (import.meta.env.VITE_PUBLIC_APP_URL || `${window.location.origin}${import.meta.env.BASE_URL}`).replace(/\/?$/, '/')
+  return new URL(`?restaurant=${encodeURIComponent(slug)}`, baseUrl).toString()
+}
 
 function App() {
   const [items, setItems] = useState<MenuItem[]>(() => hasSupabaseConfig ? [] : read('la-tavola-items', initialItems))
