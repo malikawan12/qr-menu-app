@@ -1,0 +1,9 @@
+{
+  "name": "La Tavola Restaurant",
+  "short_name": "La Tavola",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5ef",
+  "theme_color": "#193c34",
+  "description": "Private restaurant dashboard and QR menu"
+}
